@@ -1,7 +1,7 @@
 {
   "currentThemeName": "dynamic",
   "customThemeFile": "",
-  "matugenScheme": "scheme-tonal-spot",
+  "matugenScheme": "scheme-fidelity",
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "dankBarTransparency": 1,
@@ -93,8 +93,8 @@
   "keyboardLayoutNameCompactMode": false,
   "runningAppsCurrentWorkspace": false,
   "runningAppsGroupByApp": false,
-  "clockDateFormat": "",
-  "lockDateFormat": "",
+  "clockDateFormat": "dd MMM",
+  "lockDateFormat": "dd MMM",
   "mediaSize": 1,
   "dankBarLeftWidgets": [
     "launcherButton",
