@@ -54,17 +54,19 @@ Examples here: `dot_config/foot/foot.ini.tmpl` (templated include path),
 - `system/` — **NOT applied by chezmoi** (it's in `.chezmoiignore`). It's the system-wide
   niri config, consumed *in place* from `/usr/share/zirconium/zdots/system/` via absolute
   `include`s. See below.
-- `LICENSE`, `CLAUDE.md`, `backlog/` — all chezmoi-ignored (dev/planning, never deployed).
+- `LICENSE`, `CLAUDE.md` — both chezmoi-ignored (dev/planning, never deployed).
 
 ## Conventions for shipped tooling
 
-Helper scripts that belong in the base image (Omarchy-style "batteries included") are
-**debranded `z-*`** — matching reiconium's existing namespace (`zjust`, `zmotd`,
-`/usr/share/zirconium`) — and live at `private_dot_local/bin/executable_z-<name>`, which
-chezmoi deploys to `~/.local/bin/z-<name>` on PATH. The `rl-*` prefix is reserved for
-personal scripts (kept in my separate `dotfiles-dmsniri` repo), so the prefix signals
-"distro tool vs mine". Promoting a tool here also means its runtime deps must be baked
-into the reiconium image. See `backlog/` for the running list of candidate promotions.
+Helper scripts that belong in the base ("batteries included", Omarchy-style) ship as
+**reiconium image executables** — `/usr/bin/ember-<name>`, added via `mkosi.extra/usr/bin/`
+in the **reiconium** repo — **not** as chezmoi-delivered dotfiles here. That's how
+`zjust`/`zmotd` already ship (executables in `/usr/bin`; only *data* under
+`/usr/share/zirconium`), and it avoids permanent `zdots` fork divergence. They're debranded
+`rl-*` → `ember-*` for the Emberdark rebrand; `rl-*` stays reserved for personal scripts in
+`dotfiles-dmsniri`, so the prefix signals "distro tool vs mine". Promoting a tool means its
+runtime deps must be baked into the reiconium image. The running list of candidate promotions
+lives in **reiconium's** backlog (`reiconium/backlog/`, items `0014`–`0024`) — not here.
 
 ## niri config flow (important)
 
