@@ -54,7 +54,17 @@ Examples here: `dot_config/foot/foot.ini.tmpl` (templated include path),
 - `system/` — **NOT applied by chezmoi** (it's in `.chezmoiignore`). It's the system-wide
   niri config, consumed *in place* from `/usr/share/zirconium/zdots/system/` via absolute
   `include`s. See below.
-- `LICENSE` (Apache-2.0) — also chezmoi-ignored.
+- `LICENSE`, `CLAUDE.md`, `backlog/` — all chezmoi-ignored (dev/planning, never deployed).
+
+## Conventions for shipped tooling
+
+Helper scripts that belong in the base image (Omarchy-style "batteries included") are
+**debranded `z-*`** — matching reiconium's existing namespace (`zjust`, `zmotd`,
+`/usr/share/zirconium`) — and live at `private_dot_local/bin/executable_z-<name>`, which
+chezmoi deploys to `~/.local/bin/z-<name>` on PATH. The `rl-*` prefix is reserved for
+personal scripts (kept in my separate `dotfiles-dmsniri` repo), so the prefix signals
+"distro tool vs mine". Promoting a tool here also means its runtime deps must be baked
+into the reiconium image. See `backlog/` for the running list of candidate promotions.
 
 ## niri config flow (important)
 
