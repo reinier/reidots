@@ -24,9 +24,10 @@ and two systemd **user** units (shipped by reiconium) apply it as the chezmoi so
   `chezmoi apply -S /usr/share/zirconium/zdots --config ~/.config/zirconium/chezmoi/chezmoi.toml`
 - `chezmoi-update.service`: same, with `--keep-going` and auto-answering `s` to prompts.
 
-> Naming stays `zirconium` on purpose (`/usr/share/zirconium`, `~/.config/zirconium`, the
-> `zirconium.kdl` include). Only reiconium's *published image name* differs. Don't rename
-> these to "reiconium".
+> Path naming stays `zirconium` on purpose (`/usr/share/zirconium`, `~/.config/zirconium`,
+> the `zirconium.kdl` include) — renaming the paths is reiconium backlog 0035, not
+> accepted. Don't rename these to "reiconium" outside that item. (Outward identity
+> *strings* — os-release, hostname, MOTD — say Reiconium since reiconium backlog 0033.)
 
 ## chezmoi conventions (how to read filenames)
 
