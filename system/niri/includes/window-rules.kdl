@@ -17,3 +17,14 @@ window-rule {
     match app-id="^com.gabm.satty$"
     open-floating true
 }
+
+window-rule {
+    match app-id=r#"^ember\.tui$"#
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 650; }
+    background-effect {
+        blur true
+        xray false
+    }
+}
