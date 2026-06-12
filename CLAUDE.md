@@ -42,14 +42,14 @@ This is a chezmoi **source directory**, so filenames are encoded, not literal:
 | `symlink_*`                | becomes a symlink; file content is the link target |
 | `.chezmoiignore`           | paths chezmoi must **not** apply    |
 
-Examples here: `dot_config/foot/foot.ini.tmpl` (templated include path),
-`dot_config/symlink_vesktop.tmpl` (symlinks `~/.config/vesktop` → the Flatpak config dir),
+Examples here: `dot_config/symlink_vesktop.tmpl` (templated symlink target,
+`{{.chezmoi.homeDir}}` → the Flatpak config dir for `~/.config/vesktop`),
 `dot_config/fastfetch/symlink_config.jsonc` → `/usr/share/zirconium/fastfetch.jsonc`.
 
 ## Layout
 
 - `dot_config/` — per-user app config applied to `~/.config`: `niri/`, `DankMaterialShell/`,
-  `foot/`, `gtk-3.0/`, `gtk-4.0/`, `qt6ct/`, `dgop/`, `fastfetch/`.
+  `kitty/`, `gtk-3.0/`, `gtk-4.0/`, `qt6ct/`, `dgop/`, `fastfetch/`.
 - `private_dot_local/` — `~/.local`: KDE color-schemes, DMS session state.
 - `dot_cache/` — seeded `~/.cache` (DMS color cache).
 - `system/` — **NOT applied by chezmoi** (it's in `.chezmoiignore`). It's the system-wide
@@ -92,7 +92,8 @@ niri config is layered across user + system + DMS, so know which file to touch:
 These are checked in as defaults but get overwritten at runtime by matugen / DMS; treat
 them as generated:
 
-- matugen color outputs: `foot/dank-colors.ini`, `gtk-{3,4}.0/dank-colors.css`,
+- matugen color outputs: `kitty/dank-theme.conf` + `kitty/dank-tabs.conf`,
+  `gtk-{3,4}.0/dank-colors.css`,
   `qt6ct/colors/matugen.conf`, `dgop/colors.json`, `niri/dms/colors.kdl`,
   `dot_cache/DankMaterialShell/dms-colors.json`,
   `private_dot_local/share/color-schemes/DankMatugen*.colors`.
